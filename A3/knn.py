@@ -62,18 +62,21 @@ for k in k_values:
             #the prediction should be considered correct if the output value is [-15%,+15%] distant from the real output values.
             #to calculate the % difference between the prediction and the real output values use: 100*(|predicted_value - real_value|)/real_value))
             y_prediction = clf.predict(X_test)
+            # print(type(y_prediction))
+            # print(type(y_test))
             accurate = 0
             for i in range(len(y_prediction)):
-                difference = 100 * (abs(y_prediction[i] - y_test[i]) / y_test[i])
-                if 15 > difference > -15:
-                    accurate += 1
-
-            accuracy = accurate / len(y_prediction)
-
-            #check if the calculated accuracy is higher than the previously one calculated. If so, update the highest accuracy and print it together
-            #with the KNN hyperparameters. Example: "Highest KNN accuracy so far: 0.92, Parameters: k=1, p=2, w= 'uniform'"
-            max_accuracy = max(max_accuracy, accuracy)
-            print(f'Highest KNN accuracy so far: {max_accuracy}, Parameters: k={k}, p={p}, w={w}')
+                print(f'{y_prediction[i]} - {y_test[i]}')
+            #     difference = 100 * (abs(y_prediction[i] - y_test[i]) / y_test[i])
+            #     if 15 > difference > -15:
+            #         accurate += 1
+            #
+            # accuracy = accurate / len(y_prediction)
+            #
+            # #check if the calculated accuracy is higher than the previously one calculated. If so, update the highest accuracy and print it together
+            # #with the KNN hyperparameters. Example: "Highest KNN accuracy so far: 0.92, Parameters: k=1, p=2, w= 'uniform'"
+            # max_accuracy = max(max_accuracy, accuracy)
+            # print(f'Highest KNN accuracy so far: {max_accuracy}, Parameters: k={k}, p={p}, w={w}')
 
 
 
